@@ -1,4 +1,4 @@
-class_name itemBase extends RigidBody2D
+class_name ItemBase extends RigidBody2D
 
 @export var set_list : Array[Resource]
 #Item attributes
@@ -13,6 +13,7 @@ func _ready() -> void:
 	#Item_SetUp
 	spawn_item_from_list(get_set_list())
 	linear_velocity.y = item_drop_speed
+	poison_the_fruit()
 
 func get_set_list() -> Resource:
 	var set_list_to_use : Resource
@@ -38,3 +39,7 @@ func spawn_item_from_list(list : Resource) -> void:
 	item_drop_speed = random_item.item_drop_speed
 	sprite_2d.texture = random_item.item_texture
 	item_type = random_item.item_type
+
+func poison_the_fruit() -> void:
+	if item_type == ItemRes.item_types.HAZARD:
+		sprite_2d.self_modulate = Color.DARK_GREEN

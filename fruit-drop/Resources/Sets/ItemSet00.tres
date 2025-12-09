@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="ItemsSet" load_steps=4 format=3 uid="uid://b786d445ob6k0"]
+[gd_resource type="Resource" script_class="ItemsSet" load_steps=7 format=3 uid="uid://b786d445ob6k0"]
 
 [ext_resource type="Script" uid="uid://c0bwvphepgp3k" path="res://Resources/Items_Set_Res.gd" id="1_2jd7q"]
 [ext_resource type="Resource" uid="uid://dgr2q44t81tht" path="res://Resources/FruitRes/item_banana.tres" id="1_4q5yu"]
 [ext_resource type="Resource" uid="uid://b4vcj2dafmp6s" path="res://Resources/FruitRes/item_cherry.tres" id="2_xsy6q"]
+[ext_resource type="Resource" uid="uid://cdy38x80vmajh" path="res://Resources/HazardRes/poisoned_banana.tres" id="3_tk5mn"]
+[ext_resource type="Resource" uid="uid://dr00jy5in6dju" path="res://Resources/FruitRes/item_orange.tres" id="4_sss1m"]
+[ext_resource type="Resource" uid="uid://cbrrdweg7b377" path="res://Resources/HazardRes/poisoned_cherry.tres" id="5_31yeb"]
 
 [resource]
 script = ExtResource("1_2jd7q")
-itemslist = Array[Resource]([ExtResource("1_4q5yu"), ExtResource("2_xsy6q")])
+itemslist = Array[Resource]([ExtResource("1_4q5yu"), ExtResource("2_xsy6q"), ExtResource("3_tk5mn"), ExtResource("4_sss1m"), ExtResource("5_31yeb")])
 metadata/_custom_type_script = "uid://c0bwvphepgp3k"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://dr00jy5in6dju"]
+
+[ext_resource type="Texture2D" uid="uid://drhct46ufpoos" path="res://Sprites/Orange.tres" id="1_dd4gi"]
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="2_3hyan"]
+
+[resource]
+script = ExtResource("2_3hyan")
+item_texture = ExtResource("1_dd4gi")
+item_points = 250
+item_drop_speed = 8.0
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://cdy38x80vmajh"]
+
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_5wbtc"]
+[ext_resource type="Texture2D" uid="uid://bm82p0htkaxqp" path="res://Sprites/Banana.tres" id="1_cfidb"]
+
+[resource]
+script = ExtResource("1_5wbtc")
+item_texture = ExtResource("1_cfidb")
+item_name = "PoisonedBanana"
+item_points = -100
+item_drop_speed = 6.0
+item_type = 2
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

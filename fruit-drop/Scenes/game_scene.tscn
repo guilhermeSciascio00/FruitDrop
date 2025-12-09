@@ -1,7 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnvqpftqfladg"]
+[gd_scene load_steps=4 format=3 uid="uid://bnvqpftqfladg"]
 
 [ext_resource type="PackedScene" uid="uid://btdccmopd8ux1" path="res://Scenes/item_spawner.tscn" id="1_x87qo"]
+[ext_resource type="PackedScene" uid="uid://l6ixcys8qwp6" path="res://Scenes/player.tscn" id="2_b6fju"]
+[ext_resource type="PackedScene" uid="uid://3co0fhih7al" path="res://Scenes/Item_cleaner.tscn" id="3_6h5vk"]
 
 [node name="GameScene" type="Node2D"]
 
+[node name="Background" type="Node" parent="."]
+
+[node name="GroundColor" type="ColorRect" parent="Background"]
+z_index = 2
+offset_left = -111.00001
+offset_top = 589.0
+offset_right = -71.00001
+offset_bottom = 629.0
+scale = Vector2(33.280003, 1.6)
+color = Color(0.2948033, 0.59, 0.12389998, 1)
+
+[node name="Sky" type="ColorRect" parent="Background"]
+offset_left = -344.99997
+offset_right = -304.99997
+offset_bottom = 40.0
+scale = Vector2(44.767975, 19.839924)
+color = Color(0.32, 0.6713333, 1, 1)
+
 [node name="ItemSpawner" parent="." instance=ExtResource("1_x87qo")]
+
+[node name="Player" parent="." instance=ExtResource("2_b6fju")]
+unique_name_in_owner = true
+position = Vector2(101, 577)
+collision_mask = 2
+
+[node name="ItemCleaner" parent="." instance=ExtResource("3_6h5vk")]
+position = Vector2(0, 794)
+
+[connection signal="on_game_over" from="Player" to="ItemSpawner" method="_on_player_on_game_over"]

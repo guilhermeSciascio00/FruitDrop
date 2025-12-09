@@ -8,6 +8,8 @@
 radius = 22.0
 
 [node name="ItemBase" type="RigidBody2D"]
+z_index = 4
+collision_layer = 2
 gravity_scale = 0.5
 script = ExtResource("1_q7odv")
 set_list = Array[Resource]([ExtResource("2_qmjsp")])

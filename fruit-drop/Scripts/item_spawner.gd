@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func spawn_item() -> void:
 	var spawn_pos = get_random_pos()
-	var item : itemBase = item_to_spawn.instantiate()
+	var item : ItemBase = item_to_spawn.instantiate()
 	item.position = spawn_pos
 	add_child(item)
 
@@ -24,3 +24,6 @@ func get_random_pos() -> Vector2:
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_item()
+
+func _on_player_on_game_over() -> void:
+	spawn_timer.stop()

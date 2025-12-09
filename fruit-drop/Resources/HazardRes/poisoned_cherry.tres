@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://cbrrdweg7b377"]
+
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_nu2aj"]
+[ext_resource type="Texture2D" uid="uid://b3t44smilc7su" path="res://Sprites/Cherry.tres" id="1_twc6p"]
+
+[resource]
+script = ExtResource("1_nu2aj")
+item_texture = ExtResource("1_twc6p")
+item_points = -125
+item_drop_speed = 8.0
+item_type = 2
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

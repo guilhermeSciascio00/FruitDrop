@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3co0fhih7al"]
+
+[ext_resource type="Script" uid="uid://x1pljptk57kk" path="res://Scripts/item_cleaner.gd" id="1_qfaih"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5ysee"]
+
+[node name="ItemCleaner" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_qfaih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_5ysee")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

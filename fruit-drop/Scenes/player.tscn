@@ -21,7 +21,10 @@ size = Vector2(108, 100)
 size = Vector2(156, 20)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_cvnsp")
+player_speed = 300.0
+bounds_offset = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cvnsp")
@@ -32,6 +35,7 @@ shape = SubResource("RectangleShape2D_v0iea")
 
 [node name="FruitGatherer" type="Area2D" parent="."]
 position = Vector2(0, -76)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FruitGatherer"]
 shape = SubResource("RectangleShape2D_cvnsp")
@@ -39,3 +43,5 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="Sprite2D" type="Sprite2D" parent="FruitGatherer"]
 scale = Vector2(1.265, 0.175)
 texture = ExtResource("1_v0iea")
+
+[connection signal="body_entered" from="FruitGatherer" to="." method="_on_fruit_gatherer_body_entered"]

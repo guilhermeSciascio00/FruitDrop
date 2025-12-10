@@ -8,4 +8,5 @@ script = ExtResource("2_3hyan")
 item_texture = ExtResource("1_dd4gi")
 item_points = 250
 item_drop_speed = 8.0
+powerup_type = 2
 metadata/_custom_type_script = "uid://ftfcok65dkhu"

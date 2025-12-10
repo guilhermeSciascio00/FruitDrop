@@ -6,6 +6,8 @@ var item_name : String
 var item_points : float
 var item_drop_speed : float
 var item_type : ItemRes.item_types
+var power_up_type : ItemRes.powerup_types
+var power_up_duration : float
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
@@ -39,6 +41,9 @@ func spawn_item_from_list(list : Resource) -> void:
 	item_drop_speed = random_item.item_drop_speed
 	sprite_2d.texture = random_item.item_texture
 	item_type = random_item.item_type
+	if item_type == ItemRes.item_types.POWER_UP:
+		power_up_type = random_item.powerup_type
+		power_up_duration = random_item.powerup_duration
 
 func poison_the_fruit() -> void:
 	if item_type == ItemRes.item_types.HAZARD:

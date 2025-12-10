@@ -9,4 +9,5 @@ item_texture = ExtResource("1_ehb5f")
 item_name = "Banana"
 item_points = 150
 item_drop_speed = 1.0
+powerup_type = 2
 metadata/_custom_type_script = "uid://ftfcok65dkhu"

@@ -44,4 +44,12 @@ shape = SubResource("RectangleShape2D_cvnsp")
 scale = Vector2(1.265, 0.175)
 texture = ExtResource("1_v0iea")
 
+[node name="PowerUP01" type="Timer" parent="."]
+one_shot = true
+
+[node name="PowerUP02" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="FruitGatherer" to="." method="_on_fruit_gatherer_body_entered"]
+[connection signal="timeout" from="PowerUP01" to="." method="_on_power_up_01_timeout"]
+[connection signal="timeout" from="PowerUP02" to="." method="_on_power_up_02_timeout"]

@@ -28,7 +28,7 @@ color = Color(0.32, 0.6713333, 1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_b6fju")]
 unique_name_in_owner = true
-position = Vector2(101, 577)
+position = Vector2(573, 589)
 collision_mask = 2
 
 [node name="ItemCleaner" parent="." instance=ExtResource("3_6h5vk")]

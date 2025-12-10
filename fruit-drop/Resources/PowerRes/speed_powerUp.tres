@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://cv4fsdq6hk0dv"]
+
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_0ihob"]
+[ext_resource type="Texture2D" uid="uid://buqhdd2rum2f1" path="res://Sprites/Boots.png" id="1_1vyph"]
+
+[resource]
+script = ExtResource("1_0ihob")
+item_texture = ExtResource("1_1vyph")
+item_name = "SpeedPowerUp"
+item_drop_speed = 12.0
+item_type = 1
+powerup_duration = 3.0
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

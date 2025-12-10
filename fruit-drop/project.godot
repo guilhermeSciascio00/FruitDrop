@@ -15,6 +15,11 @@ run/main_scene="uid://bnvqpftqfladg"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
+[autoload]
+
+CurrencyManager="*res://Scripts/currency_manager.gd"
+UpgradeManager="*res://Scripts/upgrade_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://0dhqvef1ys5k"]
+
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_g031m"]
+[ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="1_klliq"]
+
+[resource]
+script = ExtResource("1_g031m")
+item_texture = ExtResource("1_klliq")
+item_name = "SizeIncreasePowerUP"
+item_drop_speed = 12.0
+item_type = 1
+powerup_type = 1
+powerup_duration = 3.0
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

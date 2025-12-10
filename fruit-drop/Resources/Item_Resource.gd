@@ -7,9 +7,17 @@ class_name ItemRes extends Resource
 @export var item_points : int
 @export var item_drop_speed : float
 @export var item_type : item_types
+@export var powerup_type : powerup_types
+@export var powerup_duration : float
 
 enum item_types {
 	FRUIT,
 	POWER_UP,
 	HAZARD
+}
+
+enum powerup_types{
+	SPEED,
+	SIZE_INCREASE,
+	NONE
 }

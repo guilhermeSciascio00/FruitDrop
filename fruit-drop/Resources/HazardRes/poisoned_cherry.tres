@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_nu2aj")
 item_texture = ExtResource("1_twc6p")
+item_name = "PoisonedCherry"
 item_points = -125
-item_drop_speed = 8.0
+item_drop_speed = 72.0
 item_type = 2
 metadata/_custom_type_script = "uid://ftfcok65dkhu"

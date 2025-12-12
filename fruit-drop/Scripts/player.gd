@@ -15,8 +15,9 @@ var fruit_gatherer_sizeI_temp : float
 @onready var power_up_01: Timer = $PowerUP01
 @onready var power_up_02: Timer = $PowerUP02
 
-
 signal on_game_over
+signal on_damage_taken(remaining_lives : int)
+signal on_powerup_taken(pw_type : ItemRes.powerup_types, turnOff : bool)
 
 func _physics_process(_delta: float) -> void:
 	if !is_game_over:
@@ -37,6 +38,7 @@ func player_movement_boundaries() -> void:
 	
 func take_damage() -> void:
 	player_lives -= 1
+	on_damage_taken.emit(player_lives)
 	if player_lives <= 0:
 		player_lives = 0
 		is_game_over = true
@@ -58,6 +60,7 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 					player_speed *= 2
 					has_speed_powerUP = true
 					power_up_01.start()
+					on_powerup_taken.emit(body.power_up_type, false)
 					
 				elif body.power_up_type == ItemRes.powerup_types.SIZE_INCREASE and not has_sizeI_powerUP:
 					power_up_02.wait_time = body.power_up_duration
@@ -65,6 +68,8 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 					fruit_gatherer.scale.x += 1
 					has_sizeI_powerUP = true
 					power_up_02.start()
+					on_powerup_taken.emit(body.power_up_type, false)
+					
 				body.queue_free()
 				
 			ItemRes.item_types.HAZARD:
@@ -78,7 +83,9 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 func _on_power_up_01_timeout() -> void:
 	has_speed_powerUP = false
 	player_speed = player_speed_temp
+	on_powerup_taken.emit(ItemRes.powerup_types.SPEED, true)
 
 func _on_power_up_02_timeout() -> void:
 	has_sizeI_powerUP = false
 	fruit_gatherer.scale.x = fruit_gatherer_sizeI_temp
+	on_powerup_taken.emit(ItemRes.powerup_types.SIZE_INCREASE, true)

@@ -6,7 +6,7 @@
 [node name="ItemSpawner" type="Node2D"]
 script = ExtResource("1_cv47d")
 item_to_spawn = ExtResource("2_xswe0")
-spawn_offset = 5.0
+spawn_offset = 30.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0

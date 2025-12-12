@@ -7,7 +7,7 @@
 script = ExtResource("1_g031m")
 item_texture = ExtResource("1_klliq")
 item_name = "SizeIncreasePowerUP"
-item_drop_speed = 12.0
+item_drop_speed = 80.0
 item_type = 1
 powerup_type = 1
 powerup_duration = 3.0

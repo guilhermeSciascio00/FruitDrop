@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemsSet" load_steps=9 format=3 uid="uid://be80apjj3f8kt"]
+
+[ext_resource type="Resource" uid="uid://0dhqvef1ys5k" path="res://Resources/PowerRes/size_increase.tres" id="1_e6sb3"]
+[ext_resource type="Script" uid="uid://c0bwvphepgp3k" path="res://Resources/Items_Set_Res.gd" id="1_tbps5"]
+[ext_resource type="Resource" uid="uid://cv4fsdq6hk0dv" path="res://Resources/PowerRes/speed_powerUp.tres" id="2_ajtqo"]
+[ext_resource type="Resource" uid="uid://dgak24nfa1u6l" path="res://Resources/HazardRes/poisoned_orange.tres" id="3_pqrnu"]
+[ext_resource type="Resource" uid="uid://cdy38x80vmajh" path="res://Resources/HazardRes/poisoned_banana.tres" id="4_0xqni"]
+[ext_resource type="Resource" uid="uid://bbacq1wwfopl3" path="res://Resources/FruitRes/item_apple.tres" id="5_dcoaj"]
+[ext_resource type="Resource" uid="uid://b3qxjb4skbggl" path="res://Resources/FruitRes/item_pineapple.tres" id="6_ii2wf"]
+[ext_resource type="Resource" uid="uid://bpkqslohrhol5" path="res://Resources/FruitRes/item_grapes.tres" id="7_n7n0k"]
+
+[resource]
+script = ExtResource("1_tbps5")
+itemslist = Array[Resource]([ExtResource("1_e6sb3"), ExtResource("2_ajtqo"), ExtResource("3_pqrnu"), ExtResource("3_pqrnu"), ExtResource("4_0xqni"), ExtResource("5_dcoaj"), ExtResource("5_dcoaj"), ExtResource("5_dcoaj"), ExtResource("6_ii2wf"), ExtResource("7_n7n0k"), ExtResource("6_ii2wf")])
+metadata/_custom_type_script = "uid://c0bwvphepgp3k"

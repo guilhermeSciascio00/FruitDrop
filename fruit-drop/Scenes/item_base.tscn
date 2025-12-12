@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://egrmgv5yj3ux"]
+[gd_scene load_steps=6 format=3 uid="uid://egrmgv5yj3ux"]
 
 [ext_resource type="Script" uid="uid://bncedo2qlyrjw" path="res://Scripts/item_base.gd" id="1_q7odv"]
 [ext_resource type="Resource" uid="uid://b786d445ob6k0" path="res://Resources/Sets/ItemSet00.tres" id="2_qmjsp"]
+[ext_resource type="Resource" uid="uid://be80apjj3f8kt" path="res://Resources/Sets/ItemSet01.tres" id="3_b45y3"]
 [ext_resource type="Texture2D" uid="uid://bm82p0htkaxqp" path="res://Sprites/Banana.tres" id="3_ci6cl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5m4b"]
@@ -10,9 +11,9 @@ radius = 22.0
 [node name="ItemBase" type="RigidBody2D"]
 z_index = 4
 collision_layer = 2
-gravity_scale = 0.5
+gravity_scale = 0.8
 script = ExtResource("1_q7odv")
-set_list = Array[Resource]([ExtResource("2_qmjsp")])
+set_list = Array[Resource]([ExtResource("2_qmjsp"), ExtResource("3_b45y3")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l5m4b")

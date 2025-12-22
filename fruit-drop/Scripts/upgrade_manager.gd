@@ -5,8 +5,6 @@ enum Upgrades{
 	BOWLSIZE
 }
 
-var upgrade_speed_level : int = 0
-var upgrade_size_level : int = 0
 const MAX_LEVEL_CAP : int = 4
 
 var upgrades_info : Dictionary = { 
@@ -34,12 +32,10 @@ func buy_upgrade(upgrade : Upgrades) -> String:
 func update_upgrade_values(upgrade : Upgrades) -> void:
 		match(upgrade):
 			Upgrades.SPEED:
-				upgrade_speed_level = upgrades_info[upgrade]["Level"]
 				upgrades_info[upgrade]["Level"] += 1
 				upgrades_info[upgrade]["Price"] *= upgrades_info[upgrade]["Level"] 
 				upgrades_info[upgrade]["HasBoughtIt"] = false
 			Upgrades.BOWLSIZE:
-				upgrade_size_level = upgrades_info[upgrade]["Level"]
 				upgrades_info[upgrade]["Level"] += 1
 				upgrades_info[upgrade]["Price"] *= upgrades_info[upgrade]["Level"] 
 				upgrades_info[upgrade]["HasBoughtIt"] = false

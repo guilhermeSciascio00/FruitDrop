@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @export var bounds_offset : float
 var player_lives : int = 3
 const SPEED_CAP : float = 1200
+const SPEED_UPGRADE_INCREASE = 50
 var has_speed_powerUP : bool = false
 var has_sizeI_powerUP : bool = false
 var player_speed_temp : float
@@ -18,6 +19,12 @@ var fruit_gatherer_sizeI_temp : float
 signal on_game_over
 signal on_damage_taken(remaining_lives : int)
 signal on_powerup_taken(pw_type : ItemRes.powerup_types, turnOff : bool)
+
+func _ready() -> void:
+	print(UpgradeManager.has_bought_upgrade(UpgradeManager.Upgrades.SPEED))
+
+func display_bought_upgrade(upgrade : UpgradeManager.Upgrades) -> void:
+	print(upgrade)
 
 func _physics_process(_delta: float) -> void:
 	if !is_game_over:
@@ -78,7 +85,6 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 				CurrencyManager.add_score(body.item_points)
 				take_damage()
 				body.queue_free()
-
 
 func _on_power_up_01_timeout() -> void:
 	has_speed_powerUP = false

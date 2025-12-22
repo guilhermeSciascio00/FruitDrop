@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FruitDrop"
-run/main_scene="uid://bnvqpftqfladg"
+run/main_scene="uid://om47kn6xx5v1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://Sprites/icon.svg"
 
 CurrencyManager="*res://Scripts/currency_manager.gd"
 UpgradeManager="*res://Scripts/upgrade_manager.gd"
+SceneManager="*res://Scripts/SceneManager.gd"
 
 [display]
 

@@ -7,14 +7,13 @@ enum Upgrades{
 
 var upgrade_speed_level : int = 0
 var upgrade_size_level : int = 0
-const MAX_LEVEL_CAP : int = 3
+const MAX_LEVEL_CAP : int = 4
 
 var upgrades_info : Dictionary = { 
 	# name - price
 	Upgrades.SPEED : {"Price" : 300, "HasBoughtIt" : false, "Level":1}, 
 	Upgrades.BOWLSIZE : {"Price" : 500, "HasBoughtIt" : false, "Level":1},
 	}
-
 
 func has_enough_credits(currentMoney : float, upgrade : Upgrades) -> bool:
 	return currentMoney >= upgrades_info[upgrade]["Price"]
@@ -56,3 +55,6 @@ func get_upgrade_level(upgrade : Upgrades) -> int:
 
 func get_upgrade_price(upgrade : Upgrades) -> int:
 	return upgrades_info[upgrade]["Price"]
+
+func is_upgrade_maxed(upgrade : Upgrades) -> bool:
+	return upgrades_info[upgrade]["Level"] >= MAX_LEVEL_CAP

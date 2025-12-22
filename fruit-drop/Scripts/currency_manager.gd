@@ -2,7 +2,7 @@ extends Node
 
 var current_score : int = 0
 var high_score : int = 0
-var money_amount : int = 10
+var money_amount : int = 10000
 
 const MAX_SCORE_CAP : int = 500
 

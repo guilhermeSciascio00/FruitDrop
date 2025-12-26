@@ -9,10 +9,16 @@ var lives_container : Array
 @onready var speed_pw: TextureRect = $GameUI/CanvasLayer/Powerups/Speed_PW
 @onready var size_pw: TextureRect = $GameUI/CanvasLayer/Powerups/Size_PW
 
+signal on_game_paused
+
 func _ready() -> void:
 	CurrencyManager.on_score_added.connect(update_score)
 	update_score()
 	lives_container = lives.get_children() if lives.get_child_count() > 0 else []
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("GamePause"):
+		pause_game()
 
 func update_score() -> void:
 	score_text.text = "Score: %s " % str(CurrencyManager.current_score).pad_zeros(7)
@@ -39,3 +45,11 @@ func update_powerUP(powerUPType : ItemRes.powerup_types, turnOff : bool) -> void
 			speed_pw.visible = !turnOff
 		ItemRes.powerup_types.SIZE_INCREASE:
 			size_pw.visible = !turnOff
+
+func pause_game() -> void:
+	if Engine.time_scale == 1:
+		on_game_paused.emit()
+		Engine.time_scale = 0
+	else:
+		on_game_paused.emit()
+		Engine.time_scale = 1

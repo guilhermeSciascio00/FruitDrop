@@ -1,0 +1,122 @@
+[gd_scene load_steps=2 format=3 uid="uid://1xmxt0xu4edn"]
+
+[ext_resource type="Script" uid="uid://8cbn5ehdg1bv" path="res://Scripts/in_game_menus.gd" id="1_ubkrn"]
+
+[node name="inGameMenus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ubkrn")
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+
+[node name="MenuBG" type="Panel" parent="PauseMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="MenuTitle" type="RichTextLabel" parent="PauseMenu/MarginContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 48
+text = "Game paused"
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ResumeBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="RestartBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
+[node name="BackToMenuBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back to Menu"
+
+[node name="Warning" type="RichTextLabel" parent="PauseMenu/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+text = "Current progress will be lost"
+fit_content = true
+autowrap_mode = 2
+
+[node name="GameOver" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+
+[node name="MenuBG" type="Panel" parent="GameOver"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver"]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="MenuTitle" type="RichTextLabel" parent="GameOver/MarginContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 48
+text = "Game Over !"
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RestartBTN" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Play Again"
+
+[node name="BackToMenuBTN" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back to Menu"
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ResumeBTN" to="." method="_on_resume_btn_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/RestartBTN" to="." method="_on_restart_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/MarginContainer/VBoxContainer/RestartBTN" to="." method="_on_restart_btn_mouse_exited"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/RestartBTN" to="." method="_on_restart_btn_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PauseMenu/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_mouse_exited"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_pressed"]
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/RestartBTN" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_pressed"]

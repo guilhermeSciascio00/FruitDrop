@@ -21,21 +21,104 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="PlayBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="ShoppingBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Shopping"
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="OptionsBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="QuitBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[node name="SettingsMenu" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsPopUp" type="Panel" parent="CanvasLayer/SettingsMenu"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SettingsMenu/SettingsPopUp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SlidersLabels" type="VBoxContainer" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(117.595, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MainVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
+custom_minimum_size = Vector2(50, 23)
+layout_mode = 2
+text = "Main Volume"
+
+[node name="MusicVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
+custom_minimum_size = Vector2(50, 23)
+layout_mode = 2
+text = "Music Volume"
+
+[node name="SfxVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
+custom_minimum_size = Vector2(50, 23)
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="VolumeSliders" type="VBoxContainer" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+layout_mode = 2
+value = 80.0
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+layout_mode = 2
+value = 80.0
+
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+layout_mode = 2
+value = 80.0
+
+[node name="CloseBTN" type="Button" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Close"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayBTN" to="." method="_on_playBTN_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ShoppingBTN" to="." method="_on_shoppingBTN_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/OptionsBTN" to="." method="_on_optionsBTN_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitBTN" to="." method="_on_quitBTN_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/CloseBTN" to="." method="_on_close_btn_pressed"]

@@ -99,6 +99,7 @@ position = Vector2(0, 794)
 
 [connection signal="on_game_paused" from="." to="GameUI/CanvasLayer/inGameMenus" method="_on_game_scene_on_game_paused"]
 [connection signal="on_damage_taken" from="Player" to="." method="_on_player_on_damage_taken"]
+[connection signal="on_game_over" from="Player" to="." method="_on_player_on_game_over"]
 [connection signal="on_game_over" from="Player" to="GameUI/CanvasLayer/inGameMenus" method="_on_player_on_game_over"]
 [connection signal="on_game_over" from="Player" to="ItemSpawner" method="_on_player_on_game_over"]
 [connection signal="on_powerup_taken" from="Player" to="." method="_on_player_on_powerup_taken"]

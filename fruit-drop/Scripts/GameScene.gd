@@ -53,3 +53,6 @@ func pause_game() -> void:
 	else:
 		on_game_paused.emit()
 		Engine.time_scale = 1
+
+func _on_player_on_game_over() -> void:
+	CurrencyManager.add_money(CurrencyManager.convert_score_to_money())

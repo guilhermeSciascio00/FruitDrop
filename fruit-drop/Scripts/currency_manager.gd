@@ -6,6 +6,7 @@ var money_amount : int = 10
 
 const MAX_SCORE_ADD : int = 500
 const MAX_SCORE_CAP : int = 9999999
+const MONEY_CONVERSION_RATE : int = 100
 
 signal on_score_added
 
@@ -19,6 +20,15 @@ func add_score(score_amount : int) -> void:
 	
 	if current_score < 0 or current_score - score_amount < 0:
 		current_score = 0
+
+func convert_score_to_money() -> int:
+	var conversion = round(current_score / MONEY_CONVERSION_RATE)
+	if conversion < 1:
+		conversion = 1
+	return conversion
+	
+func add_money(money_to_add : int) -> void:
+	money_amount += money_to_add
 
 func reset_score() -> void:
 	current_score = 0

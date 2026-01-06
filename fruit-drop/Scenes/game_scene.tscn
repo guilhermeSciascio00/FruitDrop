@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnvqpftqfladg"]
+[gd_scene load_steps=11 format=3 uid="uid://bnvqpftqfladg"]
 
 [ext_resource type="Script" uid="uid://dubkpj6a6bhxc" path="res://Scripts/GameScene.gd" id="1_fiftr"]
 [ext_resource type="PackedScene" uid="uid://btdccmopd8ux1" path="res://Scenes/item_spawner.tscn" id="1_x87qo"]
 [ext_resource type="Texture2D" uid="uid://buqhdd2rum2f1" path="res://Sprites/Boots.png" id="2_1ixah"]
+[ext_resource type="Texture2D" uid="uid://csd7htcsnvm1w" path="res://Assets/Background/nature_1/orig.png" id="2_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://l6ixcys8qwp6" path="res://Scenes/player.tscn" id="2_b6fju"]
+[ext_resource type="Texture2D" uid="uid://cjqsk8hhahar1" path="res://Assets/Hearts/PNG/basic/heart.png" id="2_ikfsv"]
+[ext_resource type="Texture2D" uid="uid://yxlttkxowh54" path="res://Assets/Hearts/PNG/basic/border.png" id="3_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://3co0fhih7al" path="res://Scenes/Item_cleaner.tscn" id="3_6h5vk"]
 [ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="3_rgj8m"]
 [ext_resource type="PackedScene" uid="uid://1xmxt0xu4edn" path="res://Scenes/in_game_menus.tscn" id="4_2fmhe"]
@@ -13,21 +16,18 @@ script = ExtResource("1_fiftr")
 
 [node name="Background" type="Node" parent="."]
 
-[node name="GroundColor" type="ColorRect" parent="Background"]
-z_index = 2
-offset_left = -111.00001
-offset_top = 589.0
-offset_right = -71.00001
-offset_bottom = 629.0
-scale = Vector2(33.280003, 1.6)
-color = Color(0.2948033, 0.59, 0.12389998, 1)
-
-[node name="Sky" type="ColorRect" parent="Background"]
-offset_left = -344.99997
-offset_right = -304.99997
-offset_bottom = 40.0
-scale = Vector2(44.767975, 19.839924)
-color = Color(0.32, 0.6713333, 1, 1)
+[node name="Background" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -257.0
+offset_right = -195.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4381083, 1.4381083)
+texture = ExtResource("2_5dgvu")
 
 [node name="GameUI" type="Node" parent="."]
 
@@ -52,20 +52,38 @@ offset_top = 19.0
 offset_right = 128.0
 offset_bottom = 59.0
 
-[node name="ColorRect" type="ColorRect" parent="GameUI/CanvasLayer/Lives"]
-custom_minimum_size = Vector2(40, 0)
+[node name="Life01" type="TextureRect" parent="GameUI/CanvasLayer/Lives"]
 layout_mode = 2
-color = Color(1, 0.16000003, 0.16000003, 1)
+texture = ExtResource("2_ikfsv")
+expand_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="GameUI/CanvasLayer/Lives"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-color = Color(1, 0.16000003, 0.16000003, 1)
+[node name="TextureRect" type="TextureRect" parent="GameUI/CanvasLayer/Lives/Life01"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5dgvu")
 
-[node name="ColorRect3" type="ColorRect" parent="GameUI/CanvasLayer/Lives"]
-custom_minimum_size = Vector2(40, 0)
+[node name="Life02" type="TextureRect" parent="GameUI/CanvasLayer/Lives"]
 layout_mode = 2
-color = Color(1, 0.16000003, 0.16000003, 1)
+texture = ExtResource("2_ikfsv")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/CanvasLayer/Lives/Life02"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5dgvu")
+
+[node name="Life03" type="TextureRect" parent="GameUI/CanvasLayer/Lives"]
+layout_mode = 2
+texture = ExtResource("2_ikfsv")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/CanvasLayer/Lives/Life03"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5dgvu")
 
 [node name="Powerups" type="VBoxContainer" parent="GameUI/CanvasLayer"]
 offset_top = 107.0
@@ -93,9 +111,16 @@ spawn_offset = 80.0
 unique_name_in_owner = true
 position = Vector2(573, 589)
 collision_mask = 2
+player_speed = 400.0
 
 [node name="ItemCleaner" parent="." instance=ExtResource("3_6h5vk")]
 position = Vector2(0, 794)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 67)
+anchor_mode = 0
+limit_bottom = 675
+limit_smoothed = true
 
 [connection signal="on_game_paused" from="." to="GameUI/CanvasLayer/inGameMenus" method="_on_game_scene_on_game_paused"]
 [connection signal="on_damage_taken" from="Player" to="." method="_on_player_on_damage_taken"]

@@ -6,7 +6,7 @@ var money_amount : int = 10
 
 const MAX_SCORE_ADD : int = 500
 const MAX_SCORE_CAP : int = 9999999
-const MONEY_CONVERSION_RATE : int = 100
+const MONEY_CONVERSION_RATE : int = 50
 
 signal on_score_added
 

@@ -1,15 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2s287ohc1fvl"]
+[gd_scene load_steps=6 format=3 uid="uid://d2s287ohc1fvl"]
 
 [ext_resource type="Texture2D" uid="uid://buqhdd2rum2f1" path="res://Sprites/Boots.png" id="1_a0mxf"]
 [ext_resource type="Script" uid="uid://dh2ah62plfp6i" path="res://Scripts/shop_upgrades.gd" id="1_io27d"]
 [ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="2_2shtd"]
 [ext_resource type="PackedScene" uid="uid://om47kn6xx5v1" path="res://Scenes/main_menu.tscn" id="2_fdj0q"]
+[ext_resource type="Texture2D" uid="uid://o4y1dbc73ele" path="res://Assets/Background/nature_2/origbig.png" id="3_k6jq0"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_io27d")
 menu_scene = ExtResource("2_fdj0q")
 
 [node name="ShopUI" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="ShopUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k6jq0")
 
 [node name="ShopTile" type="RichTextLabel" parent="ShopUI"]
 anchors_preset = 5
@@ -19,7 +28,8 @@ offset_left = -65.0
 offset_right = 65.0
 offset_bottom = 67.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 48
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 86
 text = "SHOP"
 fit_content = true
 autowrap_mode = 0
@@ -30,11 +40,13 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -194.08002
-offset_right = -14.07959
-offset_bottom = 67.0
+offset_left = -359.0
+offset_top = 28.0
+offset_right = -14.0
+offset_bottom = 95.0
 grow_horizontal = 0
-theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 46
 text = "Money : 000000"
 fit_content = true
 autowrap_mode = 0
@@ -116,6 +128,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "0/ 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -124,6 +137,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -145,6 +159,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "0/ 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,6 +168,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -10,6 +10,9 @@ const MONEY_CONVERSION_RATE : int = 50
 
 signal on_score_added
 
+func _ready() -> void:
+	load_currency_data()
+
 func add_score(score_amount : int) -> void:
 	if score_amount > MAX_SCORE_ADD:
 		score_amount = MAX_SCORE_ADD
@@ -27,8 +30,16 @@ func convert_score_to_money() -> int:
 		conversion = 1
 	return conversion
 	
+func update_high_score() -> void:
+	if current_score > high_score:
+		high_score = current_score
+	
 func add_money(money_to_add : int) -> void:
 	money_amount += money_to_add
 
 func reset_score() -> void:
 	current_score = 0
+
+func load_currency_data() -> void:
+	money_amount = DataFile.data["Money"]
+	high_score = DataFile.data["HighScore"]

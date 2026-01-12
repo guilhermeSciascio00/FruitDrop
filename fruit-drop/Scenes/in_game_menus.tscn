@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://1xmxt0xu4edn"]
+[gd_scene load_steps=6 format=3 uid="uid://1xmxt0xu4edn"]
 
 [ext_resource type="Script" uid="uid://8cbn5ehdg1bv" path="res://Scripts/in_game_menus.gd" id="1_ubkrn"]
+[ext_resource type="FontFile" uid="uid://c1ogjaoxg5xxb" path="res://Fonts/LuckiestGuy-Regular.ttf" id="2_sw1oy"]
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="3_e5asi"]
+[ext_resource type="Theme" uid="uid://dkd6yu0foi8og" path="res://Styles/PauseMenuBtnTheme.tres" id="3_xtkmu"]
+[ext_resource type="Theme" uid="uid://ssk64gwb8bg0" path="res://Styles/GameOverBtnTheme.tres" id="5_una6m"]
 
 [node name="inGameMenus" type="Control"]
 layout_mode = 3
@@ -33,10 +37,15 @@ custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.86, 0.81771666, 0.35260004, 1)
+theme_override_fonts/normal_font = ExtResource("2_sw1oy")
 theme_override_font_sizes/normal_font_size = 48
-text = "Game paused"
+bbcode_enabled = true
+text = "[wave]Game paused[/wave]
+"
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 custom_minimum_size = Vector2(200, 200)
@@ -46,24 +55,31 @@ size_flags_vertical = 4
 
 [node name="ResumeBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_xtkmu")
+theme_override_fonts/font = ExtResource("3_e5asi")
+theme_override_font_sizes/font_size = 32
 text = "Resume"
 
 [node name="RestartBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_xtkmu")
+theme_override_fonts/font = ExtResource("3_e5asi")
+theme_override_font_sizes/font_size = 32
 text = "Restart"
 
 [node name="BackToMenuBTN" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_xtkmu")
+theme_override_fonts/font = ExtResource("3_e5asi")
+theme_override_font_sizes/font_size = 32
 text = "Back to Menu"
 
 [node name="Warning" type="RichTextLabel" parent="PauseMenu/MarginContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 18
+theme_override_fonts/normal_font = ExtResource("3_e5asi")
+theme_override_font_sizes/normal_font_size = 32
 text = "Current progress will be lost"
 fit_content = true
 autowrap_mode = 2
@@ -90,20 +106,27 @@ custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.99999994, 0.31072614, 0.29680598, 1)
+theme_override_fonts/normal_font = ExtResource("2_sw1oy")
 theme_override_font_sizes/normal_font_size = 48
-text = "Game Over !"
+bbcode_enabled = true
+text = "[wave]Game Over ![/wave]"
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Money" type="RichTextLabel" parent="GameOver/MarginContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/normal_font_size = 36
+theme_override_colors/default_color = Color(1, 0.736, 0.120000005, 1)
+theme_override_fonts/normal_font = ExtResource("3_e5asi")
+theme_override_font_sizes/normal_font_size = 48
 text = "Money: 00000000"
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOver/MarginContainer"]
 custom_minimum_size = Vector2(200, 200)
@@ -113,12 +136,15 @@ size_flags_vertical = 4
 
 [node name="RestartBTN" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("5_una6m")
+theme_override_font_sizes/font_size = 32
 text = "Play Again"
 
 [node name="BackToMenuBTN" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("5_una6m")
+theme_override_fonts/font = ExtResource("3_e5asi")
+theme_override_font_sizes/font_size = 32
 text = "Back to Menu"
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ResumeBTN" to="." method="_on_resume_btn_pressed"]

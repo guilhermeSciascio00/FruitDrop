@@ -49,3 +49,10 @@ func _on_game_scene_on_game_paused() -> void:
 func _on_player_on_game_over() -> void:
 	show_hide_game_over()
 	money.text = "Money: %s " % str(CurrencyManager.money_amount)
+	CurrencyManager.update_high_score()
+	save_currency_data()
+	
+func save_currency_data() -> void:
+	DataFile.data["HighScore"] = CurrencyManager.high_score;
+	DataFile.data["Money"] = CurrencyManager.money_amount;
+	DataFile.save_game()

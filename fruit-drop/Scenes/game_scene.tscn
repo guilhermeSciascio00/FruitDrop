@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnvqpftqfladg"]
+[gd_scene load_steps=12 format=3 uid="uid://bnvqpftqfladg"]
 
 [ext_resource type="Script" uid="uid://dubkpj6a6bhxc" path="res://Scripts/GameScene.gd" id="1_fiftr"]
 [ext_resource type="PackedScene" uid="uid://btdccmopd8ux1" path="res://Scenes/item_spawner.tscn" id="1_x87qo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://yxlttkxowh54" path="res://Assets/Hearts/PNG/basic/border.png" id="3_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://3co0fhih7al" path="res://Scenes/Item_cleaner.tscn" id="3_6h5vk"]
 [ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="3_rgj8m"]
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="3_uscyt"]
 [ext_resource type="PackedScene" uid="uid://1xmxt0xu4edn" path="res://Scenes/in_game_menus.tscn" id="4_2fmhe"]
 
 [node name="GameScene" type="Node2D"]
@@ -40,6 +41,7 @@ anchor_right = 1.0
 offset_left = -318.0
 offset_bottom = 67.0
 grow_horizontal = 0
+theme_override_fonts/normal_font = ExtResource("3_uscyt")
 theme_override_font_sizes/normal_font_size = 48
 text = "Score: 000000"
 fit_content = true

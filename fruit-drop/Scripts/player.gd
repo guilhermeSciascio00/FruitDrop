@@ -17,6 +17,11 @@ var size_power_up_multiplier : float = 0.20
 @onready var fruit_gatherer: Area2D = $FruitGatherer
 @onready var power_up_01: Timer = $PowerUP01
 @onready var power_up_02: Timer = $PowerUP02
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var pick_up_sfx: AudioStreamPlayer2D = $PickUpSFX
+const FRUIT_PICKUP_SFX : AudioStream = preload("res://SFX-Music/retro-coin-3-236679.mp3")
+const POWER_UP_PICKUPSFX : AudioStream = preload("res://SFX-Music/win-176035.mp3")
+
 
 signal on_game_over
 signal on_damage_taken(remaining_lives : int)
@@ -28,15 +33,23 @@ func _ready() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if !is_game_over:
-		get_player_movement()
+		flip_character(get_player_movement())
 		player_movement_boundaries()
 		move_and_slide()
 
-func get_player_movement() -> void:
+func get_player_movement() -> int:
 	var direction : float = Input.get_axis("MoveLeft", "MoveRight")
 	var clamped_speed : float = clampf(player_speed, 0, SPEED_CAP)
 	var movement : Vector2 = Vector2(direction * clamped_speed, 0)
 	velocity = movement
+	return direction
+	
+func flip_character(facing_dir : int) -> void:
+	match facing_dir:
+		-1:
+			sprite_2d.flip_h = true
+		1:
+			sprite_2d.flip_h = false
 	
 func player_movement_boundaries() -> void:
 	var vp_size : Vector2 = get_viewport_rect().size
@@ -57,6 +70,8 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 			ItemRes.item_types.FRUIT:
 				#print("We've got a fruit")
 				CurrencyManager.add_score(body.item_points)
+				pick_up_sfx.stream = FRUIT_PICKUP_SFX
+				pick_up_sfx.play()
 				body.queue_free()
 			
 			ItemRes.item_types.POWER_UP:
@@ -77,6 +92,8 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 					power_up_02.start()
 					on_powerup_taken.emit(body.power_up_type, false)
 					
+				pick_up_sfx.stream = POWER_UP_PICKUPSFX
+				pick_up_sfx.play()
 				body.queue_free()
 				
 			ItemRes.item_types.HAZARD:

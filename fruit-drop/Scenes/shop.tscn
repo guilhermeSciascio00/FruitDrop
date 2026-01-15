@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2s287ohc1fvl"]
+[gd_scene load_steps=8 format=3 uid="uid://d2s287ohc1fvl"]
 
 [ext_resource type="Texture2D" uid="uid://buqhdd2rum2f1" path="res://Sprites/Boots.png" id="1_a0mxf"]
 [ext_resource type="Script" uid="uid://dh2ah62plfp6i" path="res://Scripts/shop_upgrades.gd" id="1_io27d"]
 [ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="2_2shtd"]
 [ext_resource type="PackedScene" uid="uid://om47kn6xx5v1" path="res://Scenes/main_menu.tscn" id="2_fdj0q"]
+[ext_resource type="Texture2D" uid="uid://o4y1dbc73ele" path="res://Assets/Background/nature_2/origbig.png" id="3_k6jq0"]
+[ext_resource type="FontFile" uid="uid://c1ogjaoxg5xxb" path="res://Fonts/LuckiestGuy-Regular.ttf" id="4_3ps1r"]
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="5_ymrm4"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_io27d")
@@ -11,30 +14,43 @@ menu_scene = ExtResource("2_fdj0q")
 
 [node name="ShopUI" type="CanvasLayer" parent="."]
 
+[node name="Background" type="TextureRect" parent="ShopUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k6jq0")
+
 [node name="ShopTile" type="RichTextLabel" parent="ShopUI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -65.0
-offset_right = 65.0
-offset_bottom = 67.0
+offset_left = -169.0
+offset_right = 148.28735
+offset_bottom = 134.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 48
+theme_override_colors/default_color = Color(1, 0.7305, 0.23000002, 1)
+theme_override_fonts/normal_font = ExtResource("4_3ps1r")
+theme_override_font_sizes/normal_font_size = 86
 text = "SHOP"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="PlayerCurrency" type="RichTextLabel" parent="ShopUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -194.08002
-offset_right = -14.07959
-offset_bottom = 67.0
+offset_left = -366.0
+offset_top = 52.0
+offset_right = -14.0
+offset_bottom = 119.0
 grow_horizontal = 0
-theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(1, 0.7294118, 0.23137255, 1)
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 46
 text = "Money : 000000"
 fit_content = true
 autowrap_mode = 0
@@ -53,14 +69,19 @@ offset_right = 38.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 29
 alignment = 1
 
 [node name="SpeedBtn" type="Button" parent="ShopUI/UpgradesBTN"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ymrm4")
+theme_override_font_sizes/font_size = 32
 text = "Buy"
 
 [node name="SizeBtn" type="Button" parent="ShopUI/UpgradesBTN"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ymrm4")
+theme_override_font_sizes/font_size = 32
 text = "Buy"
 
 [node name="UpgradesVisual" type="HBoxContainer" parent="ShopUI"]
@@ -69,14 +90,14 @@ anchor_left = 0.50600004
 anchor_top = 0.432
 anchor_right = 0.50600004
 anchor_bottom = 0.43300003
-offset_left = -58.91205
+offset_left = -71.91205
 offset_top = -23.936005
-offset_right = -22.911743
+offset_right = -30.912048
 offset_bottom = -8.584015
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
-theme_override_constants/separation = -1
+theme_override_constants/separation = 9
 
 [node name="TextureRect" type="TextureRect" parent="ShopUI/UpgradesVisual"]
 layout_mode = 2
@@ -93,10 +114,12 @@ texture = ExtResource("2_2shtd")
 stretch_mode = 2
 
 [node name="MenuBTN" type="Button" parent="ShopUI"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 57.0
-offset_bottom = 43.0
+offset_left = 20.0
+offset_top = 52.0
+offset_right = 104.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("5_ymrm4")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="UpgradeInfoSpeed" type="VBoxContainer" parent="ShopUI"]
@@ -105,10 +128,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.0
+offset_left = -144.0
 offset_top = 20.0
-offset_right = 3.5700073
-offset_bottom = 70.640015
+offset_right = 34.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -116,6 +139,9 @@ grow_vertical = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 32
 text = "0/ 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -124,6 +150,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 32
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -134,10 +163,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.0
+offset_left = -40.0
 offset_top = 20.0
-offset_right = 45.570007
-offset_bottom = 70.640015
+offset_right = 138.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -145,6 +174,9 @@ grow_vertical = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 32
 text = "0/ 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,6 +185,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 32
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -164,12 +199,14 @@ anchor_left = 0.5
 anchor_top = 0.61
 anchor_right = 0.5
 anchor_bottom = 0.61
-offset_left = -65.0
-offset_top = -0.27999878
-offset_right = 62.0
-offset_bottom = 39.72
+offset_left = -129.0
+offset_top = 24.720001
+offset_right = 126.0
+offset_bottom = 64.72
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_ymrm4")
+theme_override_font_sizes/normal_font_size = 32
 text = "Placeholder text"
 fit_content = true
 autowrap_mode = 0

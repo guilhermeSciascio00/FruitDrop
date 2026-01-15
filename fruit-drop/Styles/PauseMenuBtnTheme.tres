@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dkd6yu0foi8og"]
+
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="1_36jnb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpj3u"]
+bg_color = Color(0.92156863, 0.827451, 0.10980392, 0.3019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtkmu"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+bg_color = Color(0.89, 0.7562033, 0.5251, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5294118, 0.3882353, 0.14901961, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_una6m"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+bg_color = Color(0.89007086, 0.7741276, 0.34221387, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.53, 0.39007995, 0.14839998, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfar2"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+bg_color = Color(0.66, 0.49368, 0.18479998, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27, 0.19872, 0.0756, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+Button/fonts/font = ExtResource("1_36jnb")
+Button/styles/focus = SubResource("StyleBoxFlat_hpj3u")
+Button/styles/hover = SubResource("StyleBoxFlat_xtkmu")
+Button/styles/normal = SubResource("StyleBoxFlat_una6m")
+Button/styles/pressed = SubResource("StyleBoxFlat_yfar2")

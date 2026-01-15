@@ -1,54 +1,55 @@
 [gd_scene load_steps=6 format=3 uid="uid://l6ixcys8qwp6"]
 
 [ext_resource type="Script" uid="uid://bv0brob4aj6o6" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://dvrlkg2ijuf27" path="res://Sprites/icon.svg" id="1_v0iea"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cvnsp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_v0iea")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://breog365hdpss" path="res://Assets/walkable-square.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://clhi0sl5gdfyg" path="res://Assets/Bowl.png" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
-size = Vector2(108, 100)
+size = Vector2(74, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(156, 20)
+size = Vector2(91, 57)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_mask = 0
 script = ExtResource("1_cvnsp")
 player_speed = 300.0
 bounds_offset = 50.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_cvnsp")
-animation = &"idle"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+scale = Vector2(3.275, 3.275)
+texture = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v0iea")
+disabled = true
 
 [node name="FruitGatherer" type="Area2D" parent="."]
+z_index = 5
 position = Vector2(0, -76)
+collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FruitGatherer"]
+z_index = 1
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="FruitGatherer"]
-scale = Vector2(1.265, 0.175)
-texture = ExtResource("1_v0iea")
+position = Vector2(0, -15)
+scale = Vector2(4, 4)
+texture = ExtResource("3_6t5aa")
 
 [node name="PowerUP01" type="Timer" parent="."]
 one_shot = true
 
 [node name="PowerUP02" type="Timer" parent="."]
 one_shot = true
+
+[node name="PickUpSFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [connection signal="body_entered" from="FruitGatherer" to="." method="_on_fruit_gatherer_body_entered"]
 [connection signal="timeout" from="PowerUP01" to="." method="_on_power_up_01_timeout"]

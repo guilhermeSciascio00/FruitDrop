@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bov72k203fwl0"]
+
+[ext_resource type="AudioStream" uid="uid://dunmcomuldwv3" path="res://SFX-Music/Clement Panchout - Sweet 70s.wav" id="1_ous86"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ous86")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"

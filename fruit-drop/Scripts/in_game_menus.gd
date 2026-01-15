@@ -5,6 +5,7 @@ class_name InGameMenus extends Control
 @onready var main_menu_scene : PackedScene = load("res://Scenes/main_menu.tscn")
 @onready var pause_menu: MarginContainer = $PauseMenu
 @onready var game_over: MarginContainer = $GameOver
+@onready var money: RichTextLabel = $GameOver/MarginContainer/Money
 
 
 func _on_restart_btn_mouse_entered() -> void:
@@ -47,3 +48,11 @@ func _on_game_scene_on_game_paused() -> void:
 
 func _on_player_on_game_over() -> void:
 	show_hide_game_over()
+	money.text = "Money: %s " % str(CurrencyManager.money_amount)
+	CurrencyManager.update_high_score()
+	save_currency_data()
+	
+func save_currency_data() -> void:
+	DataFile.data["HighScore"] = CurrencyManager.high_score;
+	DataFile.data["Money"] = CurrencyManager.money_amount;
+	DataFile.save_game()

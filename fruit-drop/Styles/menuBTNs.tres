@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d3qc0gdhrgwm3"]
+
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="1_6oeac"]
+[ext_resource type="StyleBox" uid="uid://bwfmv3vuyxd7m" path="res://Styles/default_btn_hover.tres" id="1_k1vnu"]
+[ext_resource type="StyleBox" uid="uid://ca5o8is5ijwd1" path="res://Styles/default_button_look.tres" id="2_6oeac"]
+[ext_resource type="StyleBox" uid="uid://ccupfryv1l2xw" path="res://Styles/default_pressed_btn.tres" id="3_22mbd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02yvo"]
+bg_color = Color(0.4959, 0.87, 0.72659504, 0.3019608)
+
+[resource]
+Button/fonts/font = ExtResource("1_6oeac")
+Button/styles/focus = SubResource("StyleBoxFlat_02yvo")
+Button/styles/hover = ExtResource("1_k1vnu")
+Button/styles/normal = ExtResource("2_6oeac")
+Button/styles/pressed = ExtResource("3_22mbd")

@@ -17,9 +17,11 @@ config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
+DataFile="*res://Scripts/Data_File.gd"
 CurrencyManager="*res://Scripts/currency_manager.gd"
 UpgradeManager="*res://Scripts/upgrade_manager.gd"
 SceneManager="*res://Scripts/SceneManager.gd"
+MusicPlayer="*res://Scenes/music_player.tscn"
 
 [display]
 
@@ -51,6 +53,7 @@ GamePause={
 2d_physics/layer_1="player"
 2d_physics/layer_2="items"
 2d_physics/layer_3="item_cleaner"
+2d_physics/layer_4="fruit_gatherer"
 
 [rendering]
 

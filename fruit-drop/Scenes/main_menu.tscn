@@ -1,11 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://om47kn6xx5v1"]
+[gd_scene load_steps=11 format=3 uid="uid://om47kn6xx5v1"]
 
 [ext_resource type="Script" uid="uid://bxm6wwobtt7g1" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://o4y1dbc73ele" path="res://Assets/Background/nature_2/origbig.png" id="2_48xlc"]
+[ext_resource type="FontFile" uid="uid://c1ogjaoxg5xxb" path="res://Fonts/LuckiestGuy-Regular.ttf" id="3_1ehe0"]
+[ext_resource type="FontFile" uid="uid://64ow3pqbghyf" path="res://Fonts/Figerona-VF.ttf" id="4_ce3w2"]
+[ext_resource type="Theme" uid="uid://d3qc0gdhrgwm3" path="res://Styles/menuBTNs.tres" id="4_n45e2"]
+[ext_resource type="StyleBox" uid="uid://bwfmv3vuyxd7m" path="res://Styles/default_btn_hover.tres" id="5_yhxw7"]
+[ext_resource type="StyleBox" uid="uid://ca5o8is5ijwd1" path="res://Styles/default_button_look.tres" id="6_trj04"]
+[ext_resource type="StyleBox" uid="uid://ccupfryv1l2xw" path="res://Styles/default_pressed_btn.tres" id="7_16hvj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02yvo"]
+bg_color = Color(0.4959, 0.87, 0.72659504, 0.3019608)
+
+[sub_resource type="Theme" id="Theme_yhxw7"]
+Button/fonts/font = ExtResource("4_ce3w2")
+Button/styles/focus = SubResource("StyleBoxFlat_02yvo")
+Button/styles/hover = ExtResource("5_yhxw7")
+Button/styles/normal = ExtResource("6_trj04")
+Button/styles/pressed = ExtResource("7_16hvj")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_28flt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_48xlc")
+
+[node name="GameTitle" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 56.0
+offset_right = 285.0
+offset_bottom = 190.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.07231993, 0.48, 0.00959999, 1)
+theme_override_fonts/normal_font = ExtResource("3_1ehe0")
+theme_override_font_sizes/normal_font_size = 98
+bbcode_enabled = true
+text = "[wave]FRUIT DROP[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -19,22 +63,39 @@ offset_right = 40.5
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PlayBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_yhxw7")
+theme_override_colors/font_color = Color(0.2, 0.8, 0.47000003, 1)
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "Play"
 
 [node name="ShoppingBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_n45e2")
+theme_override_colors/font_color = Color(0.2, 0.8, 0.47000003, 1)
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "Shopping"
 
 [node name="OptionsBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_n45e2")
+theme_override_colors/font_color = Color(0.2, 0.8, 0.47000003, 1)
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="QuitBTN" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_n45e2")
+theme_override_colors/font_color = Color(0.2, 0.8, 0.47000003, 1)
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="SettingsMenu" type="MarginContainer" parent="CanvasLayer"]
@@ -58,11 +119,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 48
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_1ehe0")
 theme_override_font_sizes/normal_font_size = 36
 text = "Settings"
 horizontal_alignment = 1
@@ -81,16 +143,22 @@ size_flags_vertical = 4
 [node name="MainVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
 custom_minimum_size = Vector2(50, 23)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ce3w2")
+theme_override_font_sizes/normal_font_size = 16
 text = "Main Volume"
 
 [node name="MusicVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
 custom_minimum_size = Vector2(50, 23)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ce3w2")
+theme_override_font_sizes/normal_font_size = 16
 text = "Music Volume"
 
 [node name="SfxVolume" type="RichTextLabel" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/SlidersLabels"]
 custom_minimum_size = Vector2(50, 23)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ce3w2")
+theme_override_font_sizes/normal_font_size = 16
 text = "SFX Volume"
 
 [node name="VolumeSliders" type="VBoxContainer" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer"]
@@ -99,26 +167,36 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+[node name="MainV" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
 layout_mode = 2
-value = 80.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
-[node name="HSlider2" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+[node name="MusicV" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
 layout_mode = 2
-value = 80.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
-[node name="HSlider3" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
+[node name="SFXV" type="HSlider" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders"]
 layout_mode = 2
-value = 80.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="CloseBTN" type="Button" parent="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("4_n45e2")
 text = "Close"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayBTN" to="." method="_on_playBTN_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ShoppingBTN" to="." method="_on_shoppingBTN_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/OptionsBTN" to="." method="_on_optionsBTN_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitBTN" to="." method="_on_quitBTN_pressed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders/MainV" to="." method="_on_main_v_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders/MusicV" to="." method="_on_music_v_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/HBoxContainer/VolumeSliders/SFXV" to="." method="_on_sfxv_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/SettingsPopUp/MarginContainer/CloseBTN" to="." method="_on_close_btn_pressed"]

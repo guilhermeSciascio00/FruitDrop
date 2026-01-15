@@ -10,14 +10,22 @@ var player_speed_temp : float
 var fruit_gatherer_sizeI_temp : float
 @onready var is_game_over: bool = false
 
+var speed_power_up_multiplier : float = 0.20
+var size_power_up_multiplier : float = 0.20
+
 #References
 @onready var fruit_gatherer: Area2D = $FruitGatherer
 @onready var power_up_01: Timer = $PowerUP01
 @onready var power_up_02: Timer = $PowerUP02
 
-
 signal on_game_over
+signal on_damage_taken(remaining_lives : int)
+signal on_powerup_taken(pw_type : ItemRes.powerup_types, turnOff : bool)
 
+func _ready() -> void:
+	apply_bought_upgrade(UpgradeManager.Upgrades.SPEED)
+	apply_bought_upgrade(UpgradeManager.Upgrades.BOWLSIZE)
+	
 func _physics_process(_delta: float) -> void:
 	if !is_game_over:
 		get_player_movement()
@@ -37,6 +45,7 @@ func player_movement_boundaries() -> void:
 	
 func take_damage() -> void:
 	player_lives -= 1
+	on_damage_taken.emit(player_lives)
 	if player_lives <= 0:
 		player_lives = 0
 		is_game_over = true
@@ -55,16 +64,19 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 				if body.power_up_type == ItemRes.powerup_types.SPEED and not has_speed_powerUP:
 					power_up_01.wait_time = body.power_up_duration
 					player_speed_temp = player_speed
-					player_speed *= 2
+					player_speed += (player_speed * speed_power_up_multiplier)
 					has_speed_powerUP = true
 					power_up_01.start()
+					on_powerup_taken.emit(body.power_up_type, false)
 					
 				elif body.power_up_type == ItemRes.powerup_types.SIZE_INCREASE and not has_sizeI_powerUP:
 					power_up_02.wait_time = body.power_up_duration
 					fruit_gatherer_sizeI_temp = fruit_gatherer.scale.x
-					fruit_gatherer.scale.x += 1
+					fruit_gatherer.scale.x += (fruit_gatherer.scale.x * size_power_up_multiplier)
 					has_sizeI_powerUP = true
 					power_up_02.start()
+					on_powerup_taken.emit(body.power_up_type, false)
+					
 				body.queue_free()
 				
 			ItemRes.item_types.HAZARD:
@@ -74,11 +86,27 @@ func _on_fruit_gatherer_body_entered(body: Node2D) -> void:
 				take_damage()
 				body.queue_free()
 
-
 func _on_power_up_01_timeout() -> void:
 	has_speed_powerUP = false
 	player_speed = player_speed_temp
+	on_powerup_taken.emit(ItemRes.powerup_types.SPEED, true)
 
 func _on_power_up_02_timeout() -> void:
 	has_sizeI_powerUP = false
 	fruit_gatherer.scale.x = fruit_gatherer_sizeI_temp
+	on_powerup_taken.emit(ItemRes.powerup_types.SIZE_INCREASE, true)
+
+func apply_bought_upgrade(upgrade : UpgradeManager.Upgrades) -> void:
+	match(upgrade):
+		UpgradeManager.Upgrades.SPEED:
+			var speedBonus = player_speed
+			if UpgradeManager.get_upgrade_level(upgrade) - 1 > 0:
+				speedBonus += (UpgradeManager.get_upgrade_level(upgrade) - 1) * 100
+				player_speed = speedBonus
+
+		UpgradeManager.Upgrades.BOWLSIZE:
+			var bowlSizeBonus = fruit_gatherer.scale.x
+			if UpgradeManager.get_upgrade_level(upgrade) - 1 > 0:
+				bowlSizeBonus += (UpgradeManager.get_upgrade_level(upgrade) - 1) * 0.10
+				fruit_gatherer.scale.x = bowlSizeBonus
+				print(fruit_gatherer.scale.x )

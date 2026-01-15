@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cjqrmvkr7bxbr"]
+
+[ext_resource type="Texture2D" uid="uid://cf1nmhi0en5c2" path="res://Assets/Fruit+.png" id="1_w4k5i"]
+
+[resource]
+atlas = ExtResource("1_w4k5i")
+region = Rect2(80, 0, 16, 16)
+margin = Rect2(0, 0.435, 0.05, 1.6)
+filter_clip = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://bpkqslohrhol5"]
+
+[ext_resource type="Texture2D" uid="uid://cjqrmvkr7bxbr" path="res://Sprites/grapes.tres" id="1_arw1k"]
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_ltrjp"]
+
+[resource]
+script = ExtResource("1_ltrjp")
+item_texture = ExtResource("1_arw1k")
+item_name = "Grapes"
+item_points = 400
+item_drop_speed = 100.0
+powerup_type = 2
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

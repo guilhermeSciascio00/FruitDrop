@@ -1,0 +1,181 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2s287ohc1fvl"]
+
+[ext_resource type="Texture2D" uid="uid://buqhdd2rum2f1" path="res://Sprites/Boots.png" id="1_a0mxf"]
+[ext_resource type="Script" uid="uid://dh2ah62plfp6i" path="res://Scripts/shop_upgrades.gd" id="1_io27d"]
+[ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="2_2shtd"]
+[ext_resource type="PackedScene" uid="uid://om47kn6xx5v1" path="res://Scenes/main_menu.tscn" id="2_fdj0q"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_io27d")
+menu_scene = ExtResource("2_fdj0q")
+
+[node name="ShopUI" type="CanvasLayer" parent="."]
+
+[node name="ShopTile" type="RichTextLabel" parent="ShopUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "SHOP"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerCurrency" type="RichTextLabel" parent="ShopUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -194.08002
+offset_right = -14.07959
+offset_bottom = 67.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 24
+text = "Money : 000000"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradesBTN" type="HBoxContainer" parent="ShopUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -20.0
+offset_right = 38.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SpeedBtn" type="Button" parent="ShopUI/UpgradesBTN"]
+layout_mode = 2
+text = "Buy"
+
+[node name="SizeBtn" type="Button" parent="ShopUI/UpgradesBTN"]
+layout_mode = 2
+text = "Buy"
+
+[node name="UpgradesVisual" type="HBoxContainer" parent="ShopUI"]
+anchors_preset = -1
+anchor_left = 0.50600004
+anchor_top = 0.432
+anchor_right = 0.50600004
+anchor_bottom = 0.43300003
+offset_left = -58.91205
+offset_top = -23.936005
+offset_right = -22.911743
+offset_bottom = -8.584015
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI/UpgradesVisual"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("1_a0mxf")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ShopUI/UpgradesVisual"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_2shtd")
+stretch_mode = 2
+
+[node name="MenuBTN" type="Button" parent="ShopUI"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 43.0
+text = "Back"
+
+[node name="UpgradeInfoSpeed" type="VBoxContainer" parent="ShopUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 20.0
+offset_right = 3.5700073
+offset_bottom = 70.640015
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level" type="RichTextLabel" parent="ShopUI/UpgradeInfoSpeed"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "0/ 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="RichTextLabel" parent="ShopUI/UpgradeInfoSpeed"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeInfoSize" type="VBoxContainer" parent="ShopUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = 20.0
+offset_right = 45.570007
+offset_bottom = 70.640015
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level" type="RichTextLabel" parent="ShopUI/UpgradeInfoSize"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "0/ 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="RichTextLabel" parent="ShopUI/UpgradeInfoSize"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PurchaseFeedback" type="RichTextLabel" parent="ShopUI"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.61
+anchor_right = 0.5
+anchor_bottom = 0.61
+offset_left = -65.0
+offset_top = -0.27999878
+offset_right = 62.0
+offset_bottom = 39.72
+grow_horizontal = 2
+grow_vertical = 2
+text = "Placeholder text"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ShopUI/UpgradesBTN/SpeedBtn" to="." method="_on_speed_btn_pressed"]
+[connection signal="pressed" from="ShopUI/UpgradesBTN/SizeBtn" to="." method="_on_size_btn_pressed"]
+[connection signal="pressed" from="ShopUI/MenuBTN" to="." method="_on_menu_btn_pressed"]

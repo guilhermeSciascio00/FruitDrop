@@ -7,7 +7,7 @@
 script = ExtResource("1_0ihob")
 item_texture = ExtResource("1_1vyph")
 item_name = "SpeedPowerUp"
-item_drop_speed = 12.0
+item_drop_speed = 80.0
 item_type = 1
 powerup_duration = 3.0
 metadata/_custom_type_script = "uid://ftfcok65dkhu"

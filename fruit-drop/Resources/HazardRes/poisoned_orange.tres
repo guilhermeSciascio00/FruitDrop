@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://dgak24nfa1u6l"]
+
+[ext_resource type="Texture2D" uid="uid://drhct46ufpoos" path="res://Sprites/Orange.tres" id="1_bxkhi"]
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_ve8e4"]
+
+[resource]
+script = ExtResource("1_ve8e4")
+item_texture = ExtResource("1_bxkhi")
+item_name = "PoisonedOrange"
+item_points = -200
+item_drop_speed = 72.0
+item_type = 2
+powerup_type = 2
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

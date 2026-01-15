@@ -3,7 +3,7 @@ class_name ItemBase extends RigidBody2D
 @export var set_list : Array[Resource]
 #Item attributes
 var item_name : String
-var item_points : float
+var item_points : int
 var item_drop_speed : float
 var item_type : ItemRes.item_types
 var power_up_type : ItemRes.powerup_types
@@ -16,6 +16,7 @@ func _ready() -> void:
 	spawn_item_from_list(get_set_list())
 	linear_velocity.y = item_drop_speed
 	poison_the_fruit()
+	
 
 func get_set_list() -> Resource:
 	var set_list_to_use : Resource

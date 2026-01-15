@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=3 format=3 uid="uid://ba2e5vqqxksmr"]
+
+[ext_resource type="Texture2D" uid="uid://xw2ogygw6p54" path="res://Sprites/apple.tres" id="1_4abc7"]
+[ext_resource type="Script" uid="uid://ftfcok65dkhu" path="res://Resources/Item_Resource.gd" id="1_su4qe"]
+
+[resource]
+script = ExtResource("1_su4qe")
+item_texture = ExtResource("1_4abc7")
+item_name = "PoisonedApple"
+item_points = -400
+item_drop_speed = 120.0
+item_type = 2
+powerup_type = 2
+metadata/_custom_type_script = "uid://ftfcok65dkhu"

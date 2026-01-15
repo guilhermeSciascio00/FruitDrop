@@ -9,8 +9,9 @@
 <h2> Power-Ups </h2>
 
 <p> The game also has power-ups which you can collect while playing.</p>
-<p> Play the game here -> <a> Fruit Drop </a></p>
 <p> Have fun !!</p>
+
+<a href="https://gszy.itch.io/fruit-drop">Fruit Drop by GsZY</a>
 
 <h2> Credits </h2>
 <ul>

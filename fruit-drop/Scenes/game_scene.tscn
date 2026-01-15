@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnvqpftqfladg"]
+[gd_scene load_steps=8 format=3 uid="uid://bnvqpftqfladg"]
 
 [ext_resource type="Script" uid="uid://dubkpj6a6bhxc" path="res://Scripts/GameScene.gd" id="1_fiftr"]
 [ext_resource type="PackedScene" uid="uid://btdccmopd8ux1" path="res://Scenes/item_spawner.tscn" id="1_x87qo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l6ixcys8qwp6" path="res://Scenes/player.tscn" id="2_b6fju"]
 [ext_resource type="PackedScene" uid="uid://3co0fhih7al" path="res://Scenes/Item_cleaner.tscn" id="3_6h5vk"]
 [ext_resource type="Texture2D" uid="uid://dach7doks42md" path="res://Sprites/fruibowl.png" id="3_rgj8m"]
+[ext_resource type="PackedScene" uid="uid://1xmxt0xu4edn" path="res://Scenes/in_game_menus.tscn" id="4_2fmhe"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_fiftr")
@@ -83,6 +84,8 @@ layout_mode = 2
 texture = ExtResource("3_rgj8m")
 expand_mode = 4
 
+[node name="inGameMenus" parent="GameUI/CanvasLayer" instance=ExtResource("4_2fmhe")]
+
 [node name="ItemSpawner" parent="." instance=ExtResource("1_x87qo")]
 spawn_offset = 80.0
 
@@ -94,6 +97,8 @@ collision_mask = 2
 [node name="ItemCleaner" parent="." instance=ExtResource("3_6h5vk")]
 position = Vector2(0, 794)
 
+[connection signal="on_game_paused" from="." to="GameUI/CanvasLayer/inGameMenus" method="_on_game_scene_on_game_paused"]
 [connection signal="on_damage_taken" from="Player" to="." method="_on_player_on_damage_taken"]
+[connection signal="on_game_over" from="Player" to="GameUI/CanvasLayer/inGameMenus" method="_on_player_on_game_over"]
 [connection signal="on_game_over" from="Player" to="ItemSpawner" method="_on_player_on_game_over"]
 [connection signal="on_powerup_taken" from="Player" to="." method="_on_player_on_powerup_taken"]

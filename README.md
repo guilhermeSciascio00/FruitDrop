@@ -1,6 +1,6 @@
 <h1> FRUIT DROP </h1>
 
-<img width="1024" height="1024" alt="fruit_drop_ic" src="https://github.com/user-attachments/assets/500f79a9-c92d-4227-b4a7-8c934eeba117" />
+<img width="512" height="512" alt="fruit_drop_ic" src="https://github.com/user-attachments/assets/500f79a9-c92d-4227-b4a7-8c934eeba117" />
 
 <p> Fruit drop is a fun casual game, where your goal is to collected the falling fruits, avoid the poisoned ones and please, don't let them fall on the ground</p>
 
